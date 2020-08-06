@@ -12,8 +12,8 @@ namespace v0806
 {
     public partial class Form1 : Form
     {
-        int vx;
-        int vy;
+        int vx = -10;
+        int vy = -10;
 
         public Form1()
         {
@@ -23,10 +23,25 @@ namespace v0806
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            vx = -10;
-            vy = -10;
             label1.Left += vx;
             label1.Top += vy;
+
+            if (label1.Left < 0)
+            {
+                vx = 10;
+            }
+            if (label1.Top < 0)
+            {
+                vy = 10;
+            }
+            if (label1.Right > 284)
+            {
+                vx = -10;
+            }
+            if (label1.Bottom > 261)
+            {
+                vy = -10;
+            }
 
         }
 
@@ -36,6 +51,12 @@ namespace v0806
             vy = 10;
             label1.Left += vx;
             label1.Top += vy;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("幅" + ClientSize.Width);//284
+            MessageBox.Show("高さ" + ClientSize.Height);//261
         }
     }
 }
