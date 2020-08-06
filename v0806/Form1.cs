@@ -22,41 +22,44 @@ namespace v0806
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             label1.Left += vx;
             label1.Top += vy;
 
             if (label1.Left < 0)
             {
-                vx = 10;
+                vx = Math.Abs(vx);
             }
             if (label1.Top < 0)
             {
-                vy = 10;
+                vy = Math.Abs(vy);
             }
-            if (label1.Right > 284)
+            if (label1.Right > ClientSize.Width)
             {
-                vx = -10;
+                vx = -Math.Abs(vx);
             }
-            if (label1.Bottom > 261)
+            if (label1.Bottom > ClientSize.Height)
             {
-                vy = -10;
+                vy = -Math.Abs(vy);
             }
 
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            vx = 10;
-            vy = 10;
-            label1.Left += vx;
-            label1.Top += vy;
+            //vx = 10;
+            //vy = 10;
+            //label1.Left += vx;
+            //label1.Top += vy;
+
+            vx = 0;
+            vy = 0;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("幅" + ClientSize.Width);//284
-            MessageBox.Show("高さ" + ClientSize.Height);//261
+            //MessageBox.Show("幅" + ClientSize.Width);//284
+            //MessageBox.Show("高さ" + ClientSize.Height);//261
         }
     }
 }
