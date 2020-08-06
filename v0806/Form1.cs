@@ -22,26 +22,35 @@ namespace v0806
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
+            Point mp = MousePosition;
+            mp = PointToClient(mp);
+            label2.Left = mp.X;
+            label2.Top = mp.Y;
+            label2.Text = "" + mp.X + "," + mp.Y*17.5;
+
             label1.Left += vx;
             label1.Top += vy;
 
             if (label1.Left < 0)
             {
-                vx = Math.Abs(vx);
-                vx *=(int)1.1;
+                vx = Math.Abs(vx) * 11 / 10;
 
             }
             if (label1.Top < 0)
             {
-                vy = Math.Abs(vy);
+                vy = Math.Abs(vy) * 11 / 10;
+                
             }
             if (label1.Right > ClientSize.Width)
             {
-                vx = -Math.Abs(vx);
+                vx = -Math.Abs(vx) * 11 / 10;
+                
             }
             if (label1.Bottom > ClientSize.Height)
             {
-                vy = -Math.Abs(vy);
+                vy = -Math.Abs(vy) * 11 / 10;
+                
             }
 
         }
