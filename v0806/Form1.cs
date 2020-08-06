@@ -28,6 +28,8 @@ namespace v0806
             if (label1.Left < 0)
             {
                 vx = Math.Abs(vx);
+                vx *=(int)1.1;
+
             }
             if (label1.Top < 0)
             {
