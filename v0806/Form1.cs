@@ -25,9 +25,9 @@ namespace v0806
             
             Point mp = MousePosition;
             mp = PointToClient(mp);
-            label2.Left = mp.X;
-            label2.Top = mp.Y;
-            label2.Text = "" + mp.X + "," + mp.Y*17.5;
+            label2.Left = mp.X-label2.Width/2;
+            label2.Top = mp.Y-label2.Height/2;
+            label2.Text = "" + mp.X + "," + mp.Y;
 
             label1.Left += vx;
             label1.Top += vy;
